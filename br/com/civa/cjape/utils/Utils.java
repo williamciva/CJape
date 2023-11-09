@@ -16,4 +16,9 @@ public final class Utils {
         return annotation != null;
     }
 
+    public static <T, A extends Annotation> A getAnnotation(T instance, Class<A> annotationClass) {
+        Class<?> clazz = instance.getClass();
+        return clazz.getAnnotation(annotationClass);
+    }
+
 }

@@ -1,7 +1,10 @@
 package br.com.civa.cjape;
 
-import br.com.civa.cjape.anotations.EntityName;
+import br.com.civa.cjape.annotations.EntityName;
+import br.com.civa.cjape.annotations.JapePersist;
 import br.com.civa.cjape.utils.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author William Civa
@@ -12,16 +15,28 @@ import br.com.civa.cjape.utils.Utils;
  */
 public class CJape {
 
+    private static final Logger logger = LoggerFactory.getLogger(CJape.class);
+
+    private final String entityName;
+
     public <T> CJape(T entity) throws Exception {
         try {
-            if (Utils.hasAnnotation(entity, EntityName.class)) {
+            if (Utils.hasAnnotation(entity, JapePersist.class)) {
+                this.entityName = Utils.getAnnotation(entity, JapePersist.class).entityName();
+
+            } else if (Utils.hasAnnotation(entity, EntityName.class)) {
+                this.entityName = Utils.getAnnotation(entity, EntityName.class).value();
 
             } else {
-                throw new Exception(String.format("Class %s does not use the notation %s", entity.getClass().getName(), EntityName.class.getName()));
+                throw new Exception(String.format("The class `%s` does not use the annotation `%s`", entity.getClass().getName(), EntityName.class.getName()));
             }
         } catch (Exception e) {
             throw new Exception(e);
         }
+    }
+
+    public void persist() {
+        logger.info(this.entityName);
     }
 
 }

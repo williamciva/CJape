@@ -1,4 +1,4 @@
-package br.com.civa.cjape.anotations;
+package br.com.civa.cjape.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

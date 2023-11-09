@@ -8,10 +8,11 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.lib" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8 - sankhya" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="api_outros" level="project" />
-    <orderEntry type="library" name="api_sankhya" level="project" />
-    <orderEntry type="library" name="services" level="project" />
+    <orderEntry type="library" name="api_outros" level="application" />
+    <orderEntry type="library" name="api_sankhya" level="application" />
+    <orderEntry type="library" name="services" level="application" />
+    <orderEntry type="library" name="testng" level="application" />
   </component>
 </module>
