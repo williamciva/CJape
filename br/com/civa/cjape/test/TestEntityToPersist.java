@@ -18,7 +18,7 @@ public class TestEntityToPersist {
     )
     public void createEntityWithEntityName() throws Exception {
         WithEntityName withEntityName = new WithEntityName();
-        new CJape(withEntityName);
+        new CJape<>(withEntityName);
     }
 
     @Test(
@@ -28,7 +28,7 @@ public class TestEntityToPersist {
     )
     public void testErrorWithoutAnnotationsToPersistence() throws Exception {
         WithoutPersistenceAnnotation withoutPersistenceAnnotation = new WithoutPersistenceAnnotation();
-        new CJape(withoutPersistenceAnnotation);
+        new CJape<>(withoutPersistenceAnnotation);
     }
 
 }

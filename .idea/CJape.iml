@@ -10,9 +10,9 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8 - sankhya" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="services" level="application" />
     <orderEntry type="library" name="api_outros" level="application" />
     <orderEntry type="library" name="api_sankhya" level="application" />
-    <orderEntry type="library" name="services" level="application" />
     <orderEntry type="library" name="testng" level="application" />
   </component>
 </module>
