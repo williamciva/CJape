@@ -9,11 +9,11 @@ import java.lang.annotation.Target;
  * @author William Civa
  * @version 1.0
  * @Created 08/11/2023 at 15:56
- * @LastCommit 11/11/2023 at 12:12:26
+ * @LastCommit 13/11/2023 at 17:16:13
  * @Description Required Antotation for persistence.
  */
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface PrimaryKey {
-d}
+}

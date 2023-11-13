@@ -10,18 +10,26 @@ import java.util.List;
  * @author Administrador
  * @version 1.0
  * @Created 08/11/2023 at 17:07
- * @LastCommit 11/11/2023 at 12:12:26
+ * @LastCommit 13/11/2023 at 17:16:13
  */
 public final class Utils {
 
-    public static <T> boolean hasAnnotation(Class<T> instance, Class<? extends Annotation> annotationClass) {
-        Class<?> clazz = instance;
+    public static <T> boolean hasAnnotation(Class<T> clazz, Class<? extends Annotation> annotationClass) {
         Annotation annotation = clazz.getAnnotation(annotationClass);
+        return annotation != null;
+    }
+
+    public static <T> boolean hasAnnotation(Field field, Class<? extends Annotation> annotationClass) {
+        Annotation annotation = field.getAnnotation(annotationClass);
         return annotation != null;
     }
 
     public static <T, A extends Annotation> A getAnnotation(Class<T> clazz, Class<A> annotationClass) {
         return clazz.getAnnotation(annotationClass);
+    }
+
+    public static <A extends Annotation> A getAnnotation(Field field, Class<A> annotationClass) {
+        return field.getAnnotation(annotationClass);
     }
 
     public static <T> Field[] getAllFields(Class<T> clazz) {

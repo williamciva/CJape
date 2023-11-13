@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CJape SankhyaLibs">
+    <output-path>$PROJECT_DIR$/../SankhyaLibs</output-path>
+    <root id="archive" name="CJape.jar">
+      <element id="module-output" name="CJape" />
+    </root>
+  </artifact>
+</component>

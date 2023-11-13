@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/br/com/civa/cjape/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.lib" />
+      <excludeFolder url="file://$MODULE_DIR$/test-output" />
     </content>
     <orderEntry type="jdk" jdkName="1.8 - sankhya" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />

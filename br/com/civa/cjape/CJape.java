@@ -1,22 +1,25 @@
 package br.com.civa.cjape;
 
+import br.com.civa.cjape.annotations.EntityFieldName;
 import br.com.civa.cjape.annotations.EntityName;
-import br.com.civa.cjape.annotations.JapePersist;
 import br.com.civa.cjape.utils.EntityField;
 import br.com.civa.cjape.utils.Utils;
 import br.com.sankhya.jape.wrapper.JapeFactory;
 import br.com.sankhya.jape.wrapper.JapeWrapper;
+import br.com.sankhya.jape.wrapper.fluid.FluidCreateVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author William Civa
  * @version 1.0
  * @Created 08/11/2023 at 15:48
- * @LastCommit 11/11/2023 at 12:12:26
+ * @LastCommit 13/11/2023 at 17:16:13
  * @Description Main Class to strong persistence using the Jape from Sankhya/ModelCore.
  */
 public class CJape<T> {
@@ -24,7 +27,7 @@ public class CJape<T> {
     private static final Logger logger = LoggerFactory.getLogger(CJape.class);
 
     private final String entityName;
-    private final HashMap<String, EntityField<T>> fields = new HashMap<>();
+    private HashMap<String, EntityField<T>> fields = new HashMap<>();
     private final JapeWrapper entityDAO;
     private final Class<T> clazz;
 
@@ -43,8 +46,10 @@ public class CJape<T> {
 
             // Set fields and values
             for (Field field : Utils.getAllFields(this.clazz)) {
-                if (Utils.hasAnnotation(field.getClass(), EntityName.class)) {
-                    this.fields.put(field.getName(), field.get(entity));
+                if (Utils.hasAnnotation(field, EntityFieldName.class)) {
+                    EntityField<T> entityField = new EntityField<>(entity, field);
+
+                    this.fields.put(entityField.getName(), entityField);
                 }
             }
 
@@ -55,7 +60,15 @@ public class CJape<T> {
     }
 
     public void insert() throws Exception {
+        FluidCreateVO entityVO = this.entityDAO.create();
 
+        Iterator<Map.Entry<String, EntityField<T>>> iFields = this.fields.entrySet().iterator();
+        while (iFields.hasNext()){
+            Map.Entry<String, EntityField<T>> field = iFields.next();
+            entityVO.set(field.getKey(), field.getValue());
+        }
+
+        entityVO.save();
     }
 
     public void update(T entityUpd) throws Exception {
@@ -66,5 +79,12 @@ public class CJape<T> {
         }
     }
 
+    public HashMap<String, EntityField<T>> getFields() {
+        return this.fields;
+    }
+
+    public EntityField<T> getField(String field) {
+        return this.fields.get(field);
+    }
 
 }
