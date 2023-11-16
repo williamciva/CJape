@@ -1,7 +1,8 @@
-package br.com.civa.cjape.utils;
+package br.com.civa.cjape;
 
 import br.com.civa.cjape.annotations.EntityFieldName;
 import br.com.civa.cjape.annotations.PrimaryKey;
+import br.com.civa.cjape.utils.Utils;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
@@ -28,8 +29,12 @@ public class EntityField<T> {
         this.isPrimaryKey = Utils.hasAnnotation(field, PrimaryKey.class);
 
 
-        this.name = Utils.getAnnotation(field, EntityFieldName.class).value();
-        this.name = !this.name.isEmpty() ? this.name : field.getName();
+        if (Utils.hasAnnotation(field, EntityFieldName.class)) {
+            this.name = (Utils.getAnnotation(field, EntityFieldName.class).value()).toUpperCase();
+        } else {
+            this.name = field.getName().toUpperCase();
+        }
+
     }
 
     public java.lang.reflect.Field getField() {

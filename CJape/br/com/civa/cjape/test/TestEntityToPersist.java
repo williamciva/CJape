@@ -2,8 +2,7 @@ import br.com.civa.cjape.CJape;
 import br.com.civa.cjape.annotations.EntityFieldName;
 import br.com.civa.cjape.annotations.EntityName;
 import br.com.civa.cjape.annotations.PrimaryKey;
-import br.com.civa.cjape.utils.EntityField;
-import br.com.sankhya.modelcore.MGEModelException;
+import br.com.civa.cjape.EntityField;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;

@@ -3,17 +3,21 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/br/com/civa/cjape/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/CJape" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CJape/.lib" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/CJape/br/com/civa/cjape/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/CJape/test-output" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/.lib" />
       <excludeFolder url="file://$MODULE_DIR$/test-output" />
+      <excludeFolder url="file://$MODULE_DIR$/CJape/out" />
     </content>
     <orderEntry type="jdk" jdkName="1.8 - sankhya" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="services" level="application" />
-    <orderEntry type="library" name="api_outros" level="application" />
-    <orderEntry type="library" name="api_sankhya" level="application" />
-    <orderEntry type="library" name="testng" level="application" />
+    <orderEntry type="library" name="api_outros" level="project" />
+    <orderEntry type="library" name="api_sankhya" level="project" />
+    <orderEntry type="library" name="SWService" level="project" />
+    <orderEntry type="library" name="testng" level="project" />
   </component>
 </module>

@@ -1,0 +1,36 @@
+<component name="libraryTable">
+  <library name="api_sankhya">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/flex" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_sankhya/templates" recursive="false" type="SOURCES" />
+  </library>
+</component>

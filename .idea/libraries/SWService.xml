@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SWService">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../SankhyaLibs/services/SWService.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -2,7 +2,6 @@ package br.com.civa.cjape;
 
 import br.com.civa.cjape.annotations.EntityFieldName;
 import br.com.civa.cjape.annotations.EntityName;
-import br.com.civa.cjape.utils.EntityField;
 import br.com.civa.cjape.utils.Utils;
 import br.com.sankhya.jape.wrapper.JapeFactory;
 import br.com.sankhya.jape.wrapper.JapeWrapper;
@@ -63,9 +62,9 @@ public class CJape<T> {
         FluidCreateVO entityVO = this.entityDAO.create();
 
         Iterator<Map.Entry<String, EntityField<T>>> iFields = this.fields.entrySet().iterator();
-        while (iFields.hasNext()){
+        while (iFields.hasNext()) {
             Map.Entry<String, EntityField<T>> field = iFields.next();
-            entityVO.set(field.getKey(), field.getValue());
+            entityVO.set(field.getKey(), (field.getValue()).getValue());
         }
 
         entityVO.save();
@@ -84,7 +83,7 @@ public class CJape<T> {
     }
 
     public EntityField<T> getField(String field) {
-        return this.fields.get(field);
+        return this.fields.get(field.toLowerCase());
     }
 
 }

@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="api_outros">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/activiti" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/camunda" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/Jboss_326" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros" />
+      <root url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/Jboss_326" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/activiti" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/camunda" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/Jboss_326" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../SankhyaLibs/api_outros/Jboss_326" recursive="false" type="SOURCES" />
+  </library>
+</component>
