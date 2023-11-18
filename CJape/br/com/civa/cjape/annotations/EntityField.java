@@ -1,5 +1,7 @@
 package br.com.civa.cjape.annotations;
 
+import br.com.civa.cjape.enums.EntityFieldTypes;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -15,7 +17,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface EntityFieldName {
+public @interface EntityField {
     String value() default "";
+    EntityFieldTypes type() default EntityFieldTypes.UNDEFINED;
 
 }

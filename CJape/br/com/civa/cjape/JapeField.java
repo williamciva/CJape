@@ -1,6 +1,6 @@
 package br.com.civa.cjape;
 
-import br.com.civa.cjape.annotations.EntityFieldName;
+import br.com.civa.cjape.annotations.EntityField;
 import br.com.civa.cjape.annotations.PrimaryKey;
 import br.com.civa.cjape.utils.Utils;
 
@@ -14,14 +14,14 @@ import java.math.BigDecimal;
  * @LastCommit 13/11/2023 at 17:16:13
  * @Description description here.
  */
-public class EntityField<T> {
+public class JapeField<T> {
 
     private java.lang.reflect.Field field;
     private String name;
     private Object value;
     private boolean isPrimaryKey;
 
-    public EntityField(T instance, Field field) throws IllegalAccessException {
+    public JapeField(T instance, Field field) throws IllegalAccessException {
         field.setAccessible(true);
 
         this.field = field;
@@ -29,9 +29,8 @@ public class EntityField<T> {
         this.isPrimaryKey = Utils.hasAnnotation(field, PrimaryKey.class);
 
 
-        if (Utils.hasAnnotation(field, EntityFieldName.class)) {
-            this.name = (Utils.getAnnotation(field, EntityFieldName.class).value()).toUpperCase();
-        } else {
+        this.name = (Utils.getAnnotation(field, EntityField.class).value()).toUpperCase();
+        if (this.name.isEmpty()) {
             this.name = field.getName().toUpperCase();
         }
 
@@ -46,6 +45,11 @@ public class EntityField<T> {
     }
 
     public Object getValue() {
+
+        if (this.value instanceof Number) {
+            return BigDecimal.valueOf(((Number) this.value).doubleValue());
+        }
+
         return value;
     }
 
@@ -64,6 +68,18 @@ public class EntityField<T> {
     public String getValueAsString() {
         if (this.value instanceof String) {
             return (String) this.value;
+        }
+
+        return null;
+    }
+
+    public char[] getValueAsCharArray() {
+        if (this.value instanceof char[]) {
+            return (char[]) this.value;
+        }
+
+        if (this.value instanceof String) {
+            return ((String) this.value).toCharArray();
         }
 
         return null;

@@ -1,8 +1,9 @@
 import br.com.civa.cjape.CJape;
-import br.com.civa.cjape.annotations.EntityFieldName;
+import br.com.civa.cjape.annotations.EntityField;
 import br.com.civa.cjape.annotations.EntityName;
 import br.com.civa.cjape.annotations.PrimaryKey;
-import br.com.civa.cjape.EntityField;
+import br.com.civa.cjape.JapeField;
+import br.com.civa.cjape.enums.EntityFieldTypes;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
@@ -11,7 +12,7 @@ import java.math.BigDecimal;
  * @author William Civa
  * @version 1.0
  * @Created 08/11/2023 at 16:04
- * @LastCommit 13/11/2023 at 17:16:13
+ * @LastCommit 18/11/2023 at 11:47:51
  * @Description Validates that the class implements the annotations required for persistence methods.
  */
 
@@ -45,7 +46,7 @@ public class TestEntityToPersist {
         CJape<WithEntityName> japeWithEntityName = new CJape<>(withEntityName);
 
 
-        EntityField<WithEntityName> entityFieldPk = japeWithEntityName.getField("primaryKeyFieldOnDB");
+        JapeField<WithEntityName> entityFieldPk = japeWithEntityName.getField("primaryKeyFieldOnDB");
         if (!(entityFieldPk.getValueAsBigDecimal().compareTo(BigDecimal.TEN) == 0)) {
             throw new Exception(String.format("%s values not equals 0.", entityFieldPk.getName()));
         }
@@ -54,7 +55,7 @@ public class TestEntityToPersist {
         }
 
 
-        EntityField<WithEntityName> entityFielStr = japeWithEntityName.getField("fieldVarcharWithDefaultName");
+        JapeField<WithEntityName> entityFielStr = japeWithEntityName.getField("fieldVarcharWithDefaultName");
         if (!entityFielStr.getValueAsString().equals("Description")) {
             throw new Exception(String.format("%s values not equals `Description`.", entityFielStr.getName()));
         }
@@ -69,10 +70,10 @@ public class TestEntityToPersist {
 @EntityName("MyEntity")
 class WithEntityName {
     @PrimaryKey
-    @EntityFieldName("primaryKeyFieldOnDB")
+    @EntityField("primaryKeyFieldOnDB")
     int my_primary_key = 10;
 
-    @EntityFieldName
+    @EntityField
     String fieldVarcharWithDefaultName = "Description";
 }
 
