@@ -4,6 +4,8 @@ import br.com.civa.cjape.annotations.EntityName;
 import br.com.civa.cjape.annotations.PrimaryKey;
 import br.com.civa.cjape.JapeField;
 import br.com.civa.cjape.enums.EntityFieldTypes;
+import models.WithEntityName;
+import models.WithoutPersistenceAnnotation;
 import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
@@ -12,7 +14,7 @@ import java.math.BigDecimal;
  * @author William Civa
  * @version 1.0
  * @Created 08/11/2023 at 16:04
- * @LastCommit 18/11/2023 at 11:47:51
+ * @LastCommit 20/11/2023 at 17:33:47
  * @Description Validates that the class implements the annotations required for persistence methods.
  */
 
@@ -46,7 +48,7 @@ public class TestEntityToPersist {
         CJape<WithEntityName> japeWithEntityName = new CJape<>(withEntityName);
 
 
-        JapeField<WithEntityName> entityFieldPk = japeWithEntityName.getField("primaryKeyFieldOnDB");
+        JapeField<WithEntityName> entityFieldPk = japeWithEntityName.getField("primaryKeyFieldOnDB".toUpperCase());
         if (!(entityFieldPk.getValueAsBigDecimal().compareTo(BigDecimal.TEN) == 0)) {
             throw new Exception(String.format("%s values not equals 0.", entityFieldPk.getName()));
         }
@@ -55,7 +57,7 @@ public class TestEntityToPersist {
         }
 
 
-        JapeField<WithEntityName> entityFielStr = japeWithEntityName.getField("fieldVarcharWithDefaultName");
+        JapeField<WithEntityName> entityFielStr = japeWithEntityName.getField("fieldVarcharWithDefaultName".toUpperCase());
         if (!entityFielStr.getValueAsString().equals("Description")) {
             throw new Exception(String.format("%s values not equals `Description`.", entityFielStr.getName()));
         }
@@ -64,18 +66,4 @@ public class TestEntityToPersist {
         }
     }
 
-}
-
-
-@EntityName("MyEntity")
-class WithEntityName {
-    @PrimaryKey
-    @EntityField("primaryKeyFieldOnDB")
-    int my_primary_key = 10;
-
-    @EntityField
-    String fieldVarcharWithDefaultName = "Description";
-}
-
-class WithoutPersistenceAnnotation {
 }
