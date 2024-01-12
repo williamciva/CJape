@@ -42,7 +42,7 @@ public final class Utils {
     }
 
     public static <T> Field[] getAllFields(Class<T> clazz) {
-        List<Field> fields = new ArrayList<Field>();
+        List<Field> fields = new ArrayList<>();
         fields.addAll(Arrays.asList(clazz.getDeclaredFields()));
 
         // Obter campos das superclasses recursivamente
@@ -55,8 +55,13 @@ public final class Utils {
         return fields.toArray(new Field[0]);
     }
 
-    public static <T> JapeField<T>[] getJapeFieldsFromClass(Class<T> clazz) throws IllegalAccessException {
-        return Utils.getJapeFieldsFromClass(null, clazz);
+    public static <T> JapeField<T>[] getJapeFieldsFromClass(Class<T> clazz) {
+        JapeField<T>[] returnJape = null;
+        try {
+            returnJape = Utils.getJapeFieldsFromClass(null, clazz);
+        } catch (Exception ignored) {
+        }
+        return returnJape;
     }
 
     public static <T> JapeField<T>[] getJapeFieldsFromClass(T instance, Class<T> clazz) throws IllegalAccessException {
